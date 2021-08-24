@@ -21,16 +21,18 @@
 import { ref } from "vue";
 
 export default {
-  name: "#Testit",
+  name: "#Tester",
   setup() {
     const regex = ref("");
     const userInput = ref("");
     const results = ref(null);
     const testit = () => {
-      const regexval = new RegExp(`(${regex.value})`);
-      results.value = userInput.value.split("\n").map((line) => {
-        return line.replace(regexval, '<span class="highlight">$&</span>');
-      });
+      if (regex.value && userInput.value) {
+        const regexval = new RegExp(`(${regex.value})`);
+        results.value = userInput.value.split("\n").map((line) => {
+          return line.replace(regexval, '<span class="highlight">$&</span>');
+        });
+      }
     };
 
     return {
@@ -63,6 +65,7 @@ label,
   background-color: var(--accent-bg);
 }
 p >>> .highlight {
-  color: var(--accent) !important;
+  color: var(--accent);
+  font-weight: bold;
 }
 </style>
