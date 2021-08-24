@@ -27,12 +27,10 @@ export default {
     const userInput = ref("");
     const results = ref(null);
     const testit = () => {
-      if (regex.value && userInput.value) {
-        const regexval = new RegExp(`(${regex.value})`);
-        results.value = userInput.value.split("\n").map((line) => {
-          return line.replace(regexval, '<span class="highlight">$&</span>');
-        });
-      }
+      const regexval = new RegExp(`(${regex.value})`);
+      results.value = userInput.value.split("\n").map((line) => {
+        return line.replace(regexval, '<span class="highlight">$&</span>');
+      });
     };
 
     return {
