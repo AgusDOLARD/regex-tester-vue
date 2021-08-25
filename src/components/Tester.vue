@@ -10,7 +10,7 @@
     name="userInput"
     id="userInput"
   />
-  <div id="results" v-if="results">
+  <div class="results" v-if="results">
     <div v-for="result in results" :key="result">
       <p v-html="result"></p>
     </div>
@@ -55,10 +55,10 @@ input {
   width: 100%;
 }
 label,
-#results {
+.results {
   margin-top: 40px;
 }
-#results {
+.results {
   padding: 3px 40px;
   background-color: var(--accent-bg);
 }
