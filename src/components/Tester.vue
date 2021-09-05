@@ -17,29 +17,17 @@
   </div>
 </template>
 
-<script>
+<script setup >
 import { ref } from "vue";
 
-export default {
-  name: "#Tester",
-  setup() {
-    const regex = ref("");
-    const userInput = ref("");
-    const results = ref(null);
-    const testit = () => {
-      const regexval = new RegExp(`(${regex.value})`);
-      results.value = userInput.value.split("\n").map((line) => {
-        return line.replace(regexval, '<span class="highlight">$&</span>');
-      });
-    };
-
-    return {
-      testit,
-      regex,
-      userInput,
-      results,
-    };
-  },
+const regex = ref("");
+const userInput = ref("");
+const results = ref(null);
+const testit = () => {
+  const regexval = new RegExp(`(${regex.value})`);
+  results.value = userInput.value
+    .split("\n")
+    .map((line) => line.replace(regexval, '<span class="highlight">$&</span>'));
 };
 </script>
 
