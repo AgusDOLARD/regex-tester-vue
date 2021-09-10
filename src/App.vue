@@ -3,15 +3,8 @@
   <Tester />
 </template>
 
-<script>
+<script setup>
 import Tester from "./components/Tester.vue";
-
-export default {
-  name: "App",
-  components: {
-    Tester,
-  },
-};
 </script>
 
 <style>
